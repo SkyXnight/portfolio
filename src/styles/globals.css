@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-32px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(32px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.88);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@layer utilities {
+    .navbar {
+        opacity: 0;
+        animation: fadeUp 0.5s ease 0.1s forwards;
+    }
+    .hero-title {
+        opacity: 0;
+        animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+    }
+    .hero-role {
+        opacity: 0;
+        animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
+    }
+    .hero-desc {
+        opacity: 0;
+        animation: fadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+    }
+    .hero-btns {
+        opacity: 0;
+        animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.65s forwards;
+    }
+
+    .hero-photo {
+        opacity: 0;
+        animation: slideRight 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+    }
+
+    .hero-socials {
+        opacity: 0;
+        animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.75s forwards;
+    }
+
+    .tech-bar {
+        opacity: 0;
+        animation: fadeUp 0.5s ease 0.9s forwards;
+    }
+
+    .tech-item {
+        opacity: 0;
+        animation: fadeUp 0.4s ease forwards;
+    }
+}
