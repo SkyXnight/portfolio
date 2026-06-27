@@ -34,5 +34,8 @@
     "eslint-config-next": "16.2.7",
     "tailwindcss": "^4.3.0",
     "typescript": "^5"
+  },
+  "prisma": {
+    "generate": "prisma generate"
   }
 }
