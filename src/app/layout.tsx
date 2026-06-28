@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className={`${poppins.className} h-full`}>
-            <body className="w-full flex flex-col items-center bg-white text-black antialiased font-medium px-60">
+            <body className="overflow-x-hidden w-full flex flex-col items-center bg-white text-black antialiased font-mediumpx-4 sm:px-6 lg:px-60">
                 <Header />
                 {children}
             </body>

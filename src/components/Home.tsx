@@ -13,11 +13,11 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
     return (
         <>
-            <div className="flex items-center h-auto mt-25 bg-transparent gap-25 p-10">
-                <div>
+            <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-10 lg:gap-24 mt-10 lg:mt-24 px-6 lg:px-12">
+                <div className="">
                     <div className="flex flex-col items-center">
                         <h1
-                            className={`text-6xl ${syne.className} mb-2 hero-title`}
+                            className={`text-4xl md:text-5xl lg:text-6xl ${syne.className} mb-2 hero-title`}
                         >
                             Hi, I&apos;m Diax
                         </h1>
@@ -25,7 +25,7 @@ export default function Home() {
                             &#47;&#47; FULLSTACK DEVELOPER
                         </span>
                         <p
-                            className={`w-100 text-[#5e5e5e] mt-4 mb-7 text-lg/1.6 ${inter.className} text-center hero-desc`}
+                            className={`max-w-md lg:max-w-xl text-[#5e5e5e] mt-4 mb-7 text-base sm:text-lg leading- ${inter.className} text-center hero-desc`}
                         >
                             I specialize in high-performance web applications
                             with a focus on clean code and aesthetics. I help
@@ -85,12 +85,12 @@ export default function Home() {
                 <Image
                     src="/avatar.jpg"
                     alt="avatar"
-                    width={450}
-                    height={450}
-                    className="rounded-2xl shadow-[0px_0px_20px_rgba(0,0,0,1)] hero-photo"
+                    width={300}
+                    height={300}
+                    className="lg:w-112.5 lg:h-112.5 rounded-2xl shadow-[0px_0px_20px_rgba(0,0,0,1)] hero-photo"
                 />
             </div>
-            <div className="flex items-center gap-2 justify-center mt-10 tech-bar">
+            <div className="flex flex-col lg:flex-row items-center gap-2 justify-center mt-10 lg:mt-35 tech-bar">
                 <div
                     className="flex items-center gap-2 tech-item"
                     style={{ animationDelay: "0.95s" }}

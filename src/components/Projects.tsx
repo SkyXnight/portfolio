@@ -3,14 +3,15 @@ import Link from "next/link";
 import { Syne } from "next/font/google";
 import { SiGithub } from "react-icons/si";
 
-const syne = Syne({ weight: "800" });
+const syne = Syne({ weight: "800", subsets: ["latin"] });
 
 export default function Projects() {
     return (
-        <div className="w-full px-25">
+        <div className="w-full px-5 sm:px-10 lg:px-20 xl:px-25">
+            {/* HEADER */}
             <div className="mt-6">
                 <h1
-                    className={`text-4xl ${syne.className} mb-1`}
+                    className={`text-3xl sm:text-4xl ${syne.className} mb-1`}
                     style={{
                         opacity: 0,
                         animation:
@@ -19,8 +20,9 @@ export default function Projects() {
                 >
                     Projects
                 </h1>
+
                 <span
-                    className="text-amber-400 text-lg font-medium tracking-wide"
+                    className="text-amber-400 text-base sm:text-lg font-medium tracking-wide"
                     style={{
                         opacity: 0,
                         animation: "slideLeft 0.5s ease 0.2s forwards",
@@ -28,8 +30,9 @@ export default function Projects() {
                 >
                     &#47;&#47; My Recent Works
                 </span>
+
                 <p
-                    className="text-[#3d3d3d] tracking-wide w-[38%] mt-2"
+                    className="text-[#3d3d3d] tracking-wide mt-2 max-w-md lg:max-w-xl"
                     style={{
                         opacity: 0,
                         animation: "slideLeft 0.5s ease 0.3s forwards",
@@ -39,133 +42,89 @@ export default function Projects() {
                     and full-stack development.
                 </p>
             </div>
-            <div className="grid grid-cols-3 gap-8 mt-10">
-                <div
-                    className="bg-transparent h-120"
-                    style={{
-                        opacity: 0,
-                        animation:
-                            "fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.4s forwards",
-                    }}
-                >
-                    <Image
-                        src="/blackscreen.jpg"
-                        alt="project1"
-                        width={100}
-                        height={100}
-                        className="w-full h-[50%] rounded-lg"
-                    />
-                    <div className="px-1 flex flex-col">
-                        <h1 className="text-xl font-semibold tracking-wide mt-3 mb-2">
-                            SaaS Task Manager
-                        </h1>
-                        <span className="text-[#333333]">
-                            Task managment platform with authentication and
-                            database integration.
-                        </span>
-                        <span className="mt-6 font-semibold">Tech Stack</span>
-                        <div className="mt-1 text-sm flex w-full gap-2 justify-center">
-                            <span>Next.js</span>
-                            <span>TypeScript</span>
-                            <span>Prisma</span>
-                            <span>PostgreSQL</span>
-                            <span>Tailwind CSS</span>
-                        </div>
-                        <div className="flex justify-start items-center gap-5 mt-6">
-                            <Link
-                                href="https://github.com/SkyXnight"
-                                className="w-full flex justify-center text-white bg-black items-center gap-2 rounded-lg px-3 py-2 transition-all duration-200 hover:shadow-[0px_0px_5px_rgba(0,0,0,0.7)]"
-                            >
-                                <SiGithub size={20} />
-                                GitHub
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-                <div
-                    className="bg-transparent h-120"
-                    style={{
-                        opacity: 0,
-                        animation:
-                            "fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.55s forwards",
-                    }}
-                >
-                    <Image
-                        src="/blackscreen.jpg"
-                        alt="project2"
-                        width={100}
-                        height={100}
-                        className="w-full h-[50%] rounded-lg"
-                    />
-                    <div className="px-1 flex flex-col">
-                        <h1 className="text-xl font-semibold tracking-wide mt-3 mb-2">
-                            Expense Tracker
-                        </h1>
-                        <span className="text-[#333333]">
-                            Expense tracking platform with authentication,
-                            budgeting, and analytics dashboard.
-                        </span>
-                        <span className="mt-6 font-semibold">Tech Stack</span>
-                        <div className="mt-1 text-sm flex w-full gap-2 justify-center">
-                            <span>Next.js</span>
-                            <span>TypeScript</span>
-                            <span>Prisma</span>
-                            <span>PostgreSQL</span>
-                            <span>Tailwind CSS</span>
-                        </div>
-                        <div className="flex justify-start items-center gap-5 mt-6">
-                            <Link
-                                href="https://github.com/SkyXnight"
-                                className="w-full flex justify-center text-white bg-black items-center gap-2 rounded-lg px-3 py-2 transition-all duration-200 hover:shadow-[0px_0px_5px_rgba(0,0,0,0.7)]"
-                            >
-                                <SiGithub size={20} />
-                                GitHub
-                            </Link>
+
+            {/* GRID */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+                {[
+                    {
+                        title: "SaaS Task Manager (in development)",
+                        desc: "Task management platform with authentication and database integration.",
+                        stack: [
+                            "Next.js",
+                            "TypeScript",
+                            "Prisma",
+                            "PostgreSQL",
+                            "Tailwind",
+                        ],
+                        delay: "0.4s",
+                    },
+                    {
+                        title: "Expense Tracker (in development)",
+                        desc: "Budgeting platform with analytics and authentication.",
+                        stack: [
+                            "Next.js",
+                            "TypeScript",
+                            "Prisma",
+                            "PostgreSQL",
+                        ],
+                        delay: "0.55s",
+                    },
+                    {
+                        title: "E-Commerce Store (in development)",
+                        desc: "Full-stack store with cart and payment integration.",
+                        stack: ["Next.js", "Node.js", "Prisma", "PostgreSQL"],
+                        delay: "0.7s",
+                    },
+                ].map((project, i) => (
+                    <div
+                        key={i}
+                        className="flex flex-col bg-transparent border border-transparent hover:border-black rounded-lg overflow-hidden transition-all duration-200"
+                        style={{
+                            opacity: 0,
+                            animation: `fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) ${project.delay} forwards`,
+                        }}
+                    >
+                        <Image
+                            src="/blackscreen.jpg"
+                            alt="project"
+                            width={500}
+                            height={300}
+                            className="w-full h-48 object-cover"
+                        />
+
+                        <div className="p-4 flex flex-col flex-1">
+                            <h1 className="text-lg sm:text-xl font-semibold tracking-wide mb-2">
+                                {project.title}
+                            </h1>
+
+                            <span className="text-[#333] text-sm sm:text-base">
+                                {project.desc}
+                            </span>
+
+                            <span className="mt-4 font-semibold">
+                                Tech Stack
+                            </span>
+
+                            <div className="mt-2 flex flex-wrap gap-2 text-sm text-center justify-start">
+                                {project.stack.map((t, i) => (
+                                    <span key={i} className="text-[#555]">
+                                        {t}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <div className="mt-auto pt-6">
+                                <Link
+                                    href="https://github.com/SkyXnight"
+                                    className="w-full flex justify-center items-center gap-2 bg-black text-white rounded-lg px-3 py-2 hover:shadow-[0px_0px_5px_rgba(0,0,0,0.7)] transition"
+                                >
+                                    <SiGithub size={20} />
+                                    GitHub
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div
-                    className="bg-transparent h-120"
-                    style={{
-                        opacity: 0,
-                        animation:
-                            "fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.7s forwards",
-                    }}
-                >
-                    <Image
-                        src="/blackscreen.jpg"
-                        alt="project3"
-                        width={100}
-                        height={100}
-                        className="w-full h-[50%] rounded-lg"
-                    />
-                    <div className="px-1 flex flex-col">
-                        <h1 className="text-xl font-semibold tracking-wide mt-3 mb-2">
-                            E-Commerce Store
-                        </h1>
-                        <span className="text-[#333333]">
-                            Full-stack online store with shopping cart and
-                            payment integration.
-                        </span>
-                        <span className="mt-6 font-semibold">Tech Stack</span>
-                        <div className="mt-1 text-sm flex w-full gap-3.5 justify-center">
-                            <span>Next.js</span>
-                            <span>Node.js</span>
-                            <span>Prisma</span>
-                            <span>PostgreSQL</span>
-                            <span>Tailwind CSS</span>
-                        </div>
-                        <div className="flex justify-start items-center gap-5 mt-6">
-                            <Link
-                                href="https://github.com/SkyXnight"
-                                className="w-full flex justify-center text-white bg-black items-center gap-2 rounded-lg px-3 py-2 transition-all duration-200 hover:shadow-[0px_0px_5px_rgba(0,0,0,0.7)]"
-                            >
-                                <SiGithub size={20} />
-                                GitHub
-                            </Link>
-                        </div>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     );
